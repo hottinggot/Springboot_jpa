@@ -2,10 +2,7 @@ package jpaboard.board.domain;
 
 import lombok.Data;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.util.Date;
 
 @Entity
@@ -16,13 +13,23 @@ public class Board {
     @GeneratedValue
     private Long seq;
     private String title;
+
+    @Column(updatable = false)
     private String writer;
     private String content;
-    private Date createDate;
-    private Long cnt;
 
+    @Column(insertable = false, updatable = false, columnDefinition = "DATETIME DEFAULT NOW()")
+    private Date createDate;
+
+    @Column(insertable = false,updatable = false, columnDefinition = "int default 0")
+    private Long cnt;
+/*
+    @ManyToOne
+    @JoinColumn(name = "member_id", nullable = false)
+    private Member member;
+*/
     @Override
     public String toString(){
-        return "Board [seq=" + seq + ", title=" + title + ", writer=" + writer + ", content=" + content + ", createDate=" + createDate + ", cnt=" + cnt + "]";
+        return "Board [seq=" + seq + ", title=" + title + ", content=" + content + ", createDate=" + createDate + ", cnt=" + cnt + "]";
     }
 }

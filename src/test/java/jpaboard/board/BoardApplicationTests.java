@@ -8,7 +8,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
+import java.util.Arrays;
 import java.util.Date;
+import java.util.List;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
@@ -44,6 +46,16 @@ public class BoardApplicationTests {
         Board board = boardRepo.findById(1L).get();
         board.setTitle("제목 수정함");
         boardRepo.save(board);
+    }
+
+    @Test
+    public void testQueryAnnotationTest3(){
+        List<Object[]> boardList = boardRepo.queryAnnotationTest3("테스트 제목 10");
+
+        System.out.println("검색 결과");
+        for(Object[] row : boardList){
+            System.out.println("--->" + Arrays.toString(row));
+        }
     }
 
 }
