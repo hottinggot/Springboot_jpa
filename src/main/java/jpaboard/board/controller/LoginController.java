@@ -23,6 +23,11 @@ public class LoginController {
 
     }
 
+    @GetMapping("/loginSuccess")
+    public void loginSuccess(){
+
+    }
+
     @PostMapping("/login")
     public String login(Member member, Model model){
         Member findMember = memberService.getMember(member);

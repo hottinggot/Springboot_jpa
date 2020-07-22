@@ -2,6 +2,7 @@ package jpaboard.board;
 
 import jpaboard.board.domain.Board;
 import jpaboard.board.domain.Member;
+import jpaboard.board.domain.Role;
 import jpaboard.board.persistence.BoardRepository;
 import jpaboard.board.persistence.MemberRepository;
 import org.junit.Test;
@@ -18,7 +19,7 @@ public class DataInitializeTest {
 
     @Autowired
     private BoardRepository boardRepository;
-
+/*
     @Test
     public void testDataInsert(){
         Member member1 = new Member();
@@ -52,5 +53,5 @@ public class DataInitializeTest {
             board.setContent("내용 " + i);
             boardRepository.save(board);
         }
-    }
+    }*/
 }

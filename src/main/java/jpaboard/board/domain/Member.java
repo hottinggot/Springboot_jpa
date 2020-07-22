@@ -13,7 +13,9 @@ public class Member {
     private String id;
     private String password;
     private String name;
-    private String role;
+    @Enumerated(EnumType.STRING)
+    private Role role;
+    private boolean enabled;
 /*
     @OneToMany(mappedBy = "member", fetch= FetchType.EAGER, cascade=CascadeType.ALL)
     private List<Board> boardList = new ArrayList<Board>();
