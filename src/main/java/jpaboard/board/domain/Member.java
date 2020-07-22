@@ -10,7 +10,6 @@ import java.util.List;
 @Entity
 public class Member {
     @Id
-    @Column(name="member_id")
     private String id;
     private String password;
     private String name;
